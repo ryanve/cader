@@ -43,7 +43,7 @@ function copy(object) {
   return JSON.parse(serial)
 }
 
-function raw(hash, incoming) {
+function save(hash, incoming) {
   var copied = copy(incoming)
   Object.keys(copied).forEach(function(key) {
     var value = copied[key]
@@ -53,19 +53,9 @@ function raw(hash, incoming) {
   })
 }
 
-function mix(hash, incoming) {
-  var copied = copy(incoming)
-  Object.keys(copied).forEach(function(key) {
-    var value = copied[key]
-    value = sure(value)
-    value = bond(hash, value)
-    set(hash, key, value)
-  })
-}
-
-function or(hash, key, fallback) {
+function read(hash, key) {
   var value = hash[key]
-  if (value === vacant) return sure(fallback)
+  if (value === vacant) throw new Error("Unsaved atom: " + key)
   return value
 }
 
@@ -78,7 +68,7 @@ function freeze(hash) {
 }
 
 function clone(hash) {
-  return (new cader).raw(hash)
+  return (new cader).save(hash)
 }
 
 function sure(value) {
@@ -93,17 +83,17 @@ function set(hash, key, value) {
   defineEnum(hash, key, sure(value))
 }
 
-function fuse(comps, cb) {
-  var atoms = ""
-  var l = comps.length
+function fuse(trons, cb) {
+  var atom = ""
+  var l = trons.length
   var i = 0
-  while (i < l) atoms += " " + cb(comps[i++])
-  return format(atoms)
+  while (i < l) atom += " " + cb(trons[i++])
+  return format(atom)
 }
 
-function bond(hash, composition) {
-  return fuse(ssv.split(composition), function(key) {
-    return or(hash, key, key)
+function bond(hash, atoms) {
+  return fuse(ssv.split(atoms), function(tron) {
+    return read(hash, tron)
   })
 }
 
@@ -111,8 +101,7 @@ defineEnum(model, "bond", result(bond))
 defineEnum(model, "clone", result(clone))
 defineEnum(model, "freeze", chain(freeze))
 defineEnum(model, "has", result(has))
-defineEnum(model, "mix", chain(mix))
-defineEnum(model, "raw", chain(raw))
+defineEnum(model, "save", chain(save))
 
 Object.seal(model);
 module.exports = Object.seal(cader);
