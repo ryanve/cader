@@ -72,5 +72,5 @@ cade.save({
   "PaddedViewportBox": cade.fuse("Box ViewportSize p2")
 })
 
-cade.bond("PaddedViewportBox")  // border-box m0 p0 border-none w-100vw h-100vh p2
+cade.fuse("PaddedViewportBox")  // border-box m0 p0 border-none w-100vw h-100vh p2
 ```
