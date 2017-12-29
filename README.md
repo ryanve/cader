@@ -47,14 +47,13 @@ cade.bond("Box Contain") // border-box m0 p0 border-none clearfix relative
 
 ```js
 const cade = new cader
+
 cade.save({
   "Box": "border-box m0 p0 border-none",
   "ViewportSize": "w-100vw h-100vh"
-}).save({
-  "ViewportBox": cade.bond("Box ViewportSize")
 })
 
-cade.bond("ViewportBox")  // border-box m0 p0 border-none w-100vw h-100vh
+cade.bond("Box ViewportSize")  // border-box m0 p0 border-none w-100vw h-100vh
 ```
 
 ### `.fuse(atoms)`
@@ -65,12 +64,11 @@ cade.bond("ViewportBox")  // border-box m0 p0 border-none w-100vw h-100vh
 
 ```js
 const cade = new cader
+
 cade.save({
   "Box": "border-box m0 p0 border-none",
   "ViewportSize": "w-100vw h-100vh"
-}).save({
-  "PaddedViewportBox": cade.fuse("Box ViewportSize p2")
 })
 
-cade.fuse("PaddedViewportBox")  // border-box m0 p0 border-none w-100vw h-100vh p2
+cade.fuse("Box ViewportSize p2")  // border-box m0 p0 border-none w-100vw h-100vh p2
 ```
