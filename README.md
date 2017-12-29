@@ -102,7 +102,7 @@ cade.save({ "Unable": "example" }) // throws Error
 ```js
 const library = new cader
 library.save({/* ... */}).freeze() // save library atoms and then freeze export
-const feature = framework.clone() // new instance has access to atoms from library
+const feature = library.clone() // new instance has access to atoms from library
 feature.save({/* ... */})  // can save more atoms if unique from library atoms
 ```
 
