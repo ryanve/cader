@@ -82,4 +82,7 @@ cade.bond("Box ViewportSize p2")  // border-box m0 p0 border-none w-100vw h-100v
 ```
 
 ## Compatibility
-ES5+
+- ES5+
+- CommonJS
+- Node
+- Web via `webpack` | `rollup` | `browserify`
