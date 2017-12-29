@@ -81,6 +81,31 @@ cade.save({
 cade.bond("Box ViewportSize p2")  // border-box m0 p0 border-none w-100vw h-100vh p2
 ```
 
+### `.freeze()`
+
+- freeze mapping to prevent new atoms from being saved
+- facilitates immutability
+- `@return this` for chaining
+
+```js
+const cade = new cader
+cade.freeze()
+cade.save({ "Unable": "example" }) // throws Error
+```
+
+### `.clone()`
+
+- clone instance
+- useful for extending frozen instances without mutating them
+- `@return` new instance with cloned mapping
+
+```js
+const library = new cader
+library.save({/* ... */}).freeze() // save library atoms and then freeze export
+const feature = framework.clone() // new instance has access to atoms from library
+feature.save({/* ... */})  // can save more atoms if unique from library atoms
+```
+
 ## Compatibility
 - ES5+
 - CommonJS
