@@ -6,6 +6,7 @@ npm install cader
 ```
 
 ```js
+const cader = require("cader")
 const cade = new cader
 
 cade.save({
