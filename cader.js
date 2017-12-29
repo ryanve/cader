@@ -97,22 +97,22 @@ function fusion(fission, cb) {
   return format(atom)
 }
 
-function bond(hash, atoms) {
+function fuse(hash, atoms) {
   return fusion(ssv.split(atoms), function(tron) {
     return read(hash, tron)
   })
 }
 
-function fuse(hash, atoms) {
+function bond(hash, atoms) {
   return fusion(ssv.split(atoms), function(tron) {
     return skim(hash, tron)
   })
 }
 
-defineEnum(model, "bond", result(bond))
+defineEnum(model, "fuse", result(fuse))
 defineEnum(model, "clone", result(clone))
 defineEnum(model, "freeze", chain(freeze))
-defineEnum(model, "fuse", result(fuse))
+defineEnum(model, "bond", result(bond))
 defineEnum(model, "has", result(has))
 defineEnum(model, "save", chain(save))
 
