@@ -19,6 +19,7 @@ cade.save({
 }).save({
   "ButtonTallRaised": cade.fuse("Tap PadTall Raised"),
   "ButtonWideRaised": cade.fuse("Tap PadWide Raised"),
+  "Circle": cade.bond("Box radii-circle"),
 })
 ```
 
