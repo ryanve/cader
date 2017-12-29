@@ -4,7 +4,9 @@
   "description": "Facade your cascade. ",
   "main": "cader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "eslint .",
+    "preversion": "npm test",
+    "test": "node test"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,9 @@
   },
   "homepage": "https://github.com/ryanve/cader#readme",
   "dependencies": {
-    "ssv": "^3.4.0"
+    "ssv": "^3.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0"
   }
 }
