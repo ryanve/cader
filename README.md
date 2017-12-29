@@ -1,7 +1,5 @@
-
 # cader
 Facade your cascade.
-
 
 ```js
 const cade = new cader
@@ -14,10 +12,8 @@ cade.save({
   "PadTall": "px1 py2",
   "Raised": "shadow-raised",
 }).save({
-  "ButtonTallRaised": cade.bond("Tap PadTall Raised")
+  "ButtonTallRaised": cade.bond("Tap PadTall Raised"),
   "ButtonWideRaised": cade.bond("Tap PadWide Raised"),
-  "Circle": cade.concat("Box", "radii-circle"),
-  "Sharp": cade.diff("Circle", "radii-circle"),
 })
 ```
 
@@ -31,6 +27,7 @@ cade.save({
 
 ```js
 const cade = new cader
+
 cade.save({
   "Box": "border-box m0 p0 border-none",
   "Contain": "clearfix relative",
@@ -44,8 +41,8 @@ cade.bond("Box Contain") // border-box m0 p0 border-none clearfix relative
 
 ### `.bond(atoms)`
 
-- bond the expanded value for key(s)
-- `key` is a space-separated string
+- Bond atoms into string
+- `atoms` is a space-separated string
 - `@return string`
 
 ```js
