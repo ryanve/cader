@@ -26,13 +26,17 @@ c1.save({
 }).save({
   "Podium": c1.bond("Gold Silver Bronze"),
   "Odd": c1.bond("Gold Bronze"),
-// }).mix({
-//   "TallPodium": c1.union("Podium", "px2 py4"),
-//   "WidePodium": c1.union("Podium", "px4 py2"),
+}).save({
+  "TallPodium": c1.fuse("Podium px2 py4"),
+  "WidePodium": c1.fuse("Podium px4 py2"),
+  "Tied1233": c1.fuse("Gold Silver tie tie"),
 })
 
+assert.throws(() => c1.bond("Gold m1"))
+assert.strictEqual(c1.bond(""), "")
 assert.strictEqual(c1.bond("Gold"), "1st save-test value")
 assert.strictEqual(c1.bond("Podium"), "1st save-test value 2nd 3rd")
+assert.strictEqual(c1.bond("Tied1233"), "1st save-test value 2nd tie")
 
 assert.strictEqual(c1.freeze(), c1)
 assert.ok(c1.clone() instanceof cader)
@@ -46,9 +50,9 @@ c2.save({
 }).save({
   "Podium": c2.bond("Gold Silver Bronze"),
   "Odd": c2.bond("Gold Bronze"),
-// }).mix({
-//   "TallPodium": c2.union("Podium px2 py4"),
-//   "WidePodium": c2.union(Podium px4 py2"),
+}).save({
+  "TallPodium": c2.fuse("Podium px2 py4"),
+  "WidePodium": c2.fuse("Podium px4 py2"),
 })
 
 console.log("Methods:", Object.keys(model))
