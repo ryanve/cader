@@ -83,17 +83,17 @@ function set(hash, key, value) {
   defineEnum(hash, key, sure(value))
 }
 
-function fuse(comps, cb) {
-  var atoms = ""
-  var l = comps.length
+function fuse(trons, cb) {
+  var atom = ""
+  var l = trons.length
   var i = 0
-  while (i < l) atoms += " " + cb(comps[i++])
-  return format(atoms)
+  while (i < l) atom += " " + cb(trons[i++])
+  return format(atom)
 }
 
-function bond(hash, composition) {
-  return fuse(ssv.split(composition), function(key) {
-    return read(hash, key)
+function bond(hash, atoms) {
+  return fuse(ssv.split(atoms), function(tron) {
+    return read(hash, tron)
   })
 }
 
