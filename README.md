@@ -80,3 +80,6 @@ cade.save({
 
 cade.bond("Box ViewportSize p2")  // border-box m0 p0 border-none w-100vw h-100vh p2
 ```
+
+## Compatibility
+ES5+
