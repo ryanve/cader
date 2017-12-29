@@ -87,7 +87,7 @@ function sure(value) {
 }
 
 function set(hash, key, value) {
-  if (ssv.split(key).length !== 1) throw new Error("Key must be a single token")
+  if (ssv.count(key) !== 1) throw new Error("Key must be a single token")
   if (has(hash, key)) throw new Error("Already set: " + key)
   if (Object.isFrozen(hash)) throw new Error("Frozen. Consider: .clone()")
   defineEnum(hash, key, sure(value))
