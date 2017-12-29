@@ -36,7 +36,7 @@ cade.save({
 cade.bond("Box") // border-box m0 p0 border-none
 cade.bond("Contain") // clearfix relative
 cade.bond("Box Contain") // border-box m0 p0 border-none clearfix relative
-// cade.?("Box another") // border-box m0 p0 border-none another
+cade.fuse("Box another") // border-box m0 p0 border-none another
 ```
 
 ### `.bond(atoms)`
