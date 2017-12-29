@@ -28,5 +28,8 @@
   "homepage": "https://github.com/ryanve/cader#readme",
   "dependencies": {
     "ssv": "^3.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0"
   }
 }
