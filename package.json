@@ -4,6 +4,7 @@
   "description": "Facade your cascade. ",
   "main": "cader.js",
   "scripts": {
+    "preversion": "npm test",
     "test": "node test"
   },
   "repository": {
