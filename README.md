@@ -1,6 +1,10 @@
 # cader
 Facade your cascade.
 
+```
+npm install cader
+```
+
 ```js
 const cade = new cader
 
