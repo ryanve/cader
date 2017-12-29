@@ -47,12 +47,28 @@ cade.bond("Box Contain") // border-box m0 p0 border-none clearfix relative
 
 ```js
 const cade = new cader
+
 cade.save({
   "Box": "border-box m0 p0 border-none",
   "ViewportSize": "w-100vw h-100vh"
-}).save({
-  "ViewportBox": cade.bond("Box ViewportSize")
 })
 
-cade.bond("ViewportBox")  // border-box m0 p0 border-none w-100vw h-100vh
+cade.bond("Box ViewportSize")  // border-box m0 p0 border-none w-100vw h-100vh
+```
+
+### `.fuse(atoms)`
+
+- Fuse atoms into string
+- `atoms` is a space-separated string that may contain foreign particles
+- `@return string`
+
+```js
+const cade = new cader
+
+cade.save({
+  "Box": "border-box m0 p0 border-none",
+  "ViewportSize": "w-100vw h-100vh"
+})
+
+cade.fuse("Box ViewportSize p2")  // border-box m0 p0 border-none w-100vw h-100vh p2
 ```

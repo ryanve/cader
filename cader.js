@@ -59,6 +59,12 @@ function read(hash, key) {
   return value
 }
 
+function skim(hash, key) {
+  var value = hash[key]
+  if (value === vacant) return key
+  return value
+}
+
 function has(hash, key) {
   return hash[key] !== vacant
 }
@@ -83,23 +89,30 @@ function set(hash, key, value) {
   defineEnum(hash, key, sure(value))
 }
 
-function fuse(trons, cb) {
+function fusion(fission, cb) {
   var atom = ""
-  var l = trons.length
+  var l = fission.length
   var i = 0
-  while (i < l) atom += " " + cb(trons[i++])
+  while (i < l) atom += " " + cb(fission[i++])
   return format(atom)
 }
 
 function bond(hash, atoms) {
-  return fuse(ssv.split(atoms), function(tron) {
+  return fusion(ssv.split(atoms), function(tron) {
     return read(hash, tron)
+  })
+}
+
+function fuse(hash, atoms) {
+  return fusion(ssv.split(atoms), function(tron) {
+    return skim(hash, tron)
   })
 }
 
 defineEnum(model, "bond", result(bond))
 defineEnum(model, "clone", result(clone))
 defineEnum(model, "freeze", chain(freeze))
+defineEnum(model, "fuse", result(fuse))
 defineEnum(model, "has", result(has))
 defineEnum(model, "save", chain(save))
 
