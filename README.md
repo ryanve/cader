@@ -42,7 +42,8 @@ cade.bond("Box another") // border-box m0 p0 border-none another
 ### `.fuse(atoms)`
 
 - fuse atoms into string
-- `atoms` is a space-separated string
+- `atoms` is a space-separated string of saved atoms only
+- throws error if attempting to fuse unsaved atoms
 - `@return string`
 
 ```js
@@ -59,7 +60,8 @@ cade.fuse("Box ViewportSize")  // border-box m0 p0 border-none w-100vw h-100vh
 ### `.bond(atoms)`
 
 - bond atoms into string
-- `atoms` is a space-separated string that may contain foreign particles
+- `atoms` is a space-separated string of saved atoms or foreign particles
+- foreign particles are included as is
 - `@return string`
 
 ```js
