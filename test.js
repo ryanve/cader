@@ -32,6 +32,12 @@ c1.save({
   "Tied1233": c1.bond("Gold Silver tie tie"),
 })
 
+assert.strictEqual(c1.has(""), false)
+assert.strictEqual(c1.has("Coal"), false)
+assert.strictEqual(c1.has("Gold"), true)
+assert.strictEqual(c1.has(" Gold "), false)
+
+
 assert.throws(() => c1.fuse("Gold m1"))
 assert.strictEqual(c1.fuse(""), "")
 assert.strictEqual(c1.fuse("Gold"), "1st save-test value")
