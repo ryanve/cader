@@ -6,6 +6,10 @@ const c1 = new cader
 const c2 = new cader
 const c3 = cader()
 const c4 = cader()
+const batch = Object.freeze({
+  "a1": "a one",
+  "b2": "b two",
+})
 
 assert.ok(!!model, true)
 assert.ok(c1 instanceof cader)
@@ -65,6 +69,9 @@ c2.save({
   "TallPodium": c2.bond("Podium px2 py4"),
   "WidePodium": c2.bond("Podium px4 py2"),
 })
+
+assert.deepEqual((new cader).port(), {})
+assert.deepEqual((new cader).save(batch).port(), batch)
 
 console.log("Methods:", Object.keys(model))
 console.log("Tests passed =)")

@@ -36,7 +36,7 @@ function chain(fn) {
 }
 
 
-function copy(object) {
+function port(object) {
   if (object === vacant) throw new Error("Won't serialize: " + object)
   var serial = JSON.stringify(object)
   if (serial === vacant) throw new Error("Couldn't serialize: " + object)
@@ -44,9 +44,9 @@ function copy(object) {
 }
 
 function save(hash, incoming) {
-  var copied = copy(incoming)
-  Object.keys(copied).forEach(function(key) {
-    var value = copied[key]
+  var fresh = port(incoming)
+  Object.keys(fresh).forEach(function(key) {
+    var value = fresh[key]
     value = sure(value)
     value = format(value)
     set(hash, key, value)
@@ -114,6 +114,7 @@ defineEnum(model, "clone", result(clone))
 defineEnum(model, "freeze", chain(freeze))
 defineEnum(model, "bond", result(bond))
 defineEnum(model, "has", result(has))
+defineEnum(model, "port", result(port))
 defineEnum(model, "save", chain(save))
 
 Object.seal(model);
