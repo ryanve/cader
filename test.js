@@ -19,12 +19,14 @@ assert.ok(c3 !== c4)
 
 assert.strictEqual(typeof model.bond, "function")
 assert.strictEqual(typeof model.fuse, "function")
+assert.strictEqual(typeof model.help, "function")
 assert.strictEqual(typeof model.clone, "function")
 assert.strictEqual(typeof model.freeze, "function")
 assert.strictEqual(typeof model.save, "function")
 
 assert.strictEqual(typeof c1.bond, "function")
 assert.strictEqual(typeof c1.fuse, "function")
+assert.strictEqual(typeof c1.help, "function")
 assert.strictEqual(typeof c1.clone, "function")
 assert.strictEqual(typeof c1.freeze, "function")
 assert.strictEqual(typeof c1.save, "function")
@@ -73,5 +75,7 @@ c2.save({
 assert.deepEqual((new cader).port(), {})
 assert.deepEqual((new cader).save(batch).port(), batch)
 
-console.log("Methods:", Object.keys(model))
+// Demo help
+c1.help()
+
 console.log("Tests passed =)")
