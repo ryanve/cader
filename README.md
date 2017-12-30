@@ -106,6 +106,12 @@ const feature = library.clone() // new instance has access to atoms from library
 feature.save({/* ... */})  // can save more atoms if unique from library atoms
 ```
 
+### `.help()`
+
+- log [helpful info](https://github.com/ryanve/cader/pull/22) about an instance including atom mapping and methods
+- useful for inspection, debugging, learning
+- `@return this` for chaining
+
 ## Compatibility
 - ES5+
 - CommonJS

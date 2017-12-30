@@ -35,6 +35,12 @@ function chain(fn) {
   }
 }
 
+function help(hash) {
+  hash && console.log(hash)
+  hash && console.log()
+  console.log(model)
+  console.log()
+}
 
 function port(object) {
   if (object === vacant) throw new Error("Won't serialize: " + object)
@@ -114,6 +120,7 @@ defineEnum(model, "clone", result(clone))
 defineEnum(model, "freeze", chain(freeze))
 defineEnum(model, "bond", result(bond))
 defineEnum(model, "has", result(has))
+defineEnum(model, "help", chain(help))
 defineEnum(model, "port", result(port))
 defineEnum(model, "save", chain(save))
 
