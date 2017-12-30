@@ -17,10 +17,9 @@ function defineEnum(object, key, value) {
 }
 
 function cader() {
-  var cade = this instanceof cader ? this : new cader
-  var hash = Object.create(null)
-  defineSkip(cade, "hash", hash)
-  return cade
+  if (!(this instanceof cader)) return new cader
+  defineSkip(this, "hash", Object.create(null))
+  return this
 }
 
 function result(fn) {
@@ -35,6 +34,7 @@ function chain(fn) {
     return this
   }
 }
+
 
 function copy(object) {
   if (object === vacant) throw new Error("Won't serialize: " + object)

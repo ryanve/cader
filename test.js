@@ -4,10 +4,14 @@ const cader = require("./")
 const model = cader.prototype
 const c1 = new cader
 const c2 = new cader
+const c3 = cader()
+const c4 = cader()
 
 assert.ok(!!model, true)
 assert.ok(c1 instanceof cader)
 assert.ok(c1 !== c2)
+assert.ok(c3 instanceof cader)
+assert.ok(c3 !== c4)
 
 assert.strictEqual(typeof model.bond, "function")
 assert.strictEqual(typeof model.fuse, "function")
