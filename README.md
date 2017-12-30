@@ -110,15 +110,7 @@ feature.save({/* ... */})  // can save more atoms if unique from library atoms
 
 - log helpful info about an instance including the atoms and the methods
 - useful for inspection, debugging, learning
-
 - `@return this` for chaining
-
-```js
-const library = new cader
-library.save({/* ... */}).freeze() // save library atoms and then freeze export
-const feature = library.clone() // new instance has access to atoms from library
-feature.save({/* ... */})  // can save more atoms if unique from library atoms
-```
 
 ## Compatibility
 - ES5+
