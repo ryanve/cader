@@ -9,11 +9,13 @@ assert.ok(!!model, true)
 assert.ok(c1 instanceof cader)
 assert.ok(c1 !== c2)
 
+assert.strictEqual(typeof model.bond, "function")
 assert.strictEqual(typeof model.fuse, "function")
 assert.strictEqual(typeof model.clone, "function")
 assert.strictEqual(typeof model.freeze, "function")
 assert.strictEqual(typeof model.save, "function")
 
+assert.strictEqual(typeof c1.bond, "function")
 assert.strictEqual(typeof c1.fuse, "function")
 assert.strictEqual(typeof c1.clone, "function")
 assert.strictEqual(typeof c1.freeze, "function")
