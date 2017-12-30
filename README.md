@@ -108,7 +108,7 @@ feature.save({/* ... */})  // can save more atoms if unique from library atoms
 
 ### `.help()`
 
-- log [helpful info](https://github.com/ryanve/cader/pull/22) about an instance including the atoms and the methods
+- log [helpful info](https://github.com/ryanve/cader/pull/22) about an instance including atom mapping and methods
 - useful for inspection, debugging, learning
 - `@return this` for chaining
 
