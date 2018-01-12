@@ -36,7 +36,7 @@ function chain(fn) {
 }
 
 function help(hash) {
-  hash && console.log(hash)
+  hash && console.log(JSON.stringify(hash, null, 2))
   hash && console.log()
   console.log(model)
   console.log()
