@@ -2,6 +2,8 @@ var vacant
 var ssv = require("ssv")
 var format = ssv.uniq
 var model = cader.prototype
+var fuse = via(read)
+var bond = via(skim)
 
 function defineSkip(object, key, value) {
   Object.defineProperty(object, key, {
@@ -103,16 +105,12 @@ function fusion(fission, cb) {
   return format(atom)
 }
 
-function fuse(hash, atoms) {
-  return fusion(ssv.split(atoms), function(tron) {
-    return read(hash, tron)
-  })
-}
-
-function bond(hash, atoms) {
-  return fusion(ssv.split(atoms), function(tron) {
-    return skim(hash, tron)
-  })
+function via(method) {
+  return function(hash, atoms) {
+    return fusion(ssv.split(atoms), function(tron) {
+      return method(hash, tron)
+    })
+  }
 }
 
 defineEnum(model, "fuse", result(fuse))
