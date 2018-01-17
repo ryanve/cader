@@ -120,6 +120,12 @@ const paint = new cader
 const super = shape.pair(paint)
 ```
 
+### `.port()`
+
+- get serializable object representing atom mapping
+- mainly for internal use or inspection
+- `@return` serializable plain object
+
 ### `.help()`
 
 - log [helpful info](https://github.com/ryanve/cader/pull/22) about an instance including atom mapping and methods
