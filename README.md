@@ -106,6 +106,20 @@ const feature = library.clone() // new instance has access to atoms from library
 feature.save({/* ... */})  // can save more atoms if unique from library atoms
 ```
 
+### `.pair(mate)`
+
+- pair instance with another instance
+- shortcut for `.clone().save(mate.port())`
+- will `throw` if there are conflicts
+- `@return` clone containing atoms from both
+
+```js
+const shape = new cader
+const paint = new cader
+/* ... */
+const super = shape.pair(paint)
+```
+
 ### `.help()`
 
 - log [helpful info](https://github.com/ryanve/cader/pull/22) about an instance including atom mapping and methods

@@ -10,6 +10,10 @@ const batch = Object.freeze({
   "a1": "a one",
   "b2": "b two",
 })
+const c5 = cader().save({ A: "a" })
+const c6 = cader().save({ A: "a" })
+const c7 = cader().save({ B: "b" })
+const c8 = cader().save({ C: "c" })
 
 assert.ok(!!model, true)
 assert.ok(c1 instanceof cader)
@@ -59,6 +63,14 @@ assert.strictEqual(c1.freeze(), c1)
 assert.ok(c1.clone() instanceof cader)
 assert.strictEqual(c1.clone().fuse("Gold"), c1.fuse("Gold"))
 assert.strictEqual(c1.clone().fuse("Podium"), c1.fuse("Podium"))
+
+assert.throws(() => c5.pair(c6))
+assert.strictEqual(c5.pair(c7).fuse("A"), c5.fuse("A"))
+assert.strictEqual(c5.pair(c7).fuse("B"), c7.fuse("B"))
+assert.deepEqual(
+  c5.pair(c7).pair(c8).port(),
+  Object.assign(c5.port(), c7.port(), c8.port())
+)
 
 c2.save({
   "Gold": "1st save-test value",
