@@ -85,6 +85,10 @@ function clone(hash) {
   return (new cader).save(hash)
 }
 
+function pair(hash, mate) {
+  return clone(hash).save(mate.port())
+}
+
 function sure(value) {
   if (typeof value != "string") throw new TypeError("Values must be strings")
   return value
@@ -119,6 +123,7 @@ defineEnum(model, "freeze", chain(freeze))
 defineEnum(model, "bond", result(bond))
 defineEnum(model, "has", result(has))
 defineEnum(model, "help", chain(help))
+defineEnum(model, "pair", result(pair))
 defineEnum(model, "port", result(port))
 defineEnum(model, "save", chain(save))
 
